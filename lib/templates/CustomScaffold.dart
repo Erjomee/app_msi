@@ -91,7 +91,7 @@ class _MyScaffoldState extends State<MyScaffold> {
                       icon: Icon(
                         Icons.sell_rounded,
                       ),
-                      label: 'Vente'),
+                      label: 'Ventes'),
                 ],
                 currentIndex: _selectedIndex,
                 selectedItemColor: Colors.blue,
