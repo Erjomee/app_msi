@@ -1,8 +1,3 @@
-import 'dart:ffi';
-import 'dart:io';
-
-import 'package:flutter/material.dart';
-
 class Item {
   final String name;
   final String description;
@@ -20,5 +15,4 @@ class Item {
       required this.unit_price,
       required this.amount,
       required this.for_sale});
-
 }
