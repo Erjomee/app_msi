@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
+    return const MyScaffold(
         isconnected: true,
         hasDrawer: true,
         body: Text("Home page"),

@@ -43,7 +43,7 @@ class Register extends StatelessWidget {
                     CustomFormField.LabelField("Mot de passe"),
                     CustomFormField.InputField("Test1234", passwordController),
                     CustomFormField.LabelField("Confirmer le mot de passe"),
-                    CustomFormField.InputField("", confirmpasswordController),
+                    CustomFormField.InputField("Test1234", confirmpasswordController),
                     const SizedBox(height: 40),
                     CustomFormField.SubmitButton(context, "Soumettre",
                         usercontroller: usernameController,

@@ -1,9 +1,9 @@
 import 'package:app_msi/pages/Login&Register/login.dart';
 import 'package:app_msi/pages/Login&Register/register.dart';
-import 'package:app_msi/pages/buying.dart';
+import 'package:app_msi/pages/Achat/buying.dart';
 import 'package:app_msi/pages/home.dart';
-import 'package:app_msi/pages/inventory.dart';
-import 'package:app_msi/pages/selling.dart';
+import 'package:app_msi/pages/Inventaire/inventory.dart';
+import 'package:app_msi/pages/Vente/selling.dart';
 import 'package:flutter/material.dart';
 
 void main() {
