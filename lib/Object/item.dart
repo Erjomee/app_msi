@@ -7,8 +7,8 @@ class Item {
   final String name;
   final String description;
   final String product_type;
-  final File image;
-  final Float unit_price;
+  final String image;
+  final double unit_price;
   final int amount;
   final bool for_sale;
 
@@ -20,6 +20,5 @@ class Item {
       required this.unit_price,
       required this.amount,
       required this.for_sale});
-
 
 }

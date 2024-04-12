@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomFormField {
   static Widget LabelField(String LabelField) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+      margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
       child: Text(
         LabelField,
         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -20,20 +20,11 @@ class CustomFormField {
     );
   }
 
-  static Widget SubmitButton(BuildContext context, String Label,
-      {TextEditingController? firstnameController,
-      TextEditingController? lastnameController,
-      required TextEditingController usercontroller,
-      required TextEditingController passwordcontroller,
-      TextEditingController? confirmpasswordController}) {
+  static Widget SubmitButton(BuildContext context, String Label, Function action
+      ) {
     return ElevatedButton(
       onPressed: () {
-        debugPrint("FirstName: ${firstnameController?.text}");
-        debugPrint("LastName: ${lastnameController?.text}");
-
-        debugPrint("Username: ${usercontroller.text}");
-        debugPrint("Password: ${passwordcontroller.text}");
-        debugPrint("Confirmed password: ${confirmpasswordController?.text}");
+        action();
 
         Navigator.pushReplacementNamed(context, '/home');
       },

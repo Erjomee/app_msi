@@ -37,12 +37,12 @@ class Login extends StatelessWidget {
                     CustomFormField.LabelField("Nom utilisateur"),
                     CustomFormField.InputField("Jean", usernameController),
                     CustomFormField.LabelField("Mot de passe"),
-                    CustomFormField.InputField("Test1234", passwordController,
-                        isPassword: true),
+                    CustomFormField.InputField("Test1234", passwordController,isPassword: true),
                     const SizedBox(height: 40),
-                    CustomFormField.SubmitButton(context, "Se connecter",
-                        usercontroller: usernameController,
-                        passwordcontroller: passwordController),
+                    CustomFormField.SubmitButton(context, "Se connecter", () {
+                      debugPrint("Username: ${usernameController.text}");
+                      debugPrint("Password: ${passwordController.text}");
+                    }),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
