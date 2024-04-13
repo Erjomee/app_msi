@@ -20,13 +20,11 @@ class CustomFormField {
     );
   }
 
-  static Widget SubmitButton(BuildContext context, String Label, Function action
-      ) {
+  static Widget SubmitButton(
+      BuildContext context, String Label, Function? action) {
     return ElevatedButton(
       onPressed: () {
-        action();
-
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacementNamed(context, '/home', arguments: action!());
       },
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,

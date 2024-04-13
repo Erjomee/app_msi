@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app_msi/Object/item.dart';
 import 'package:app_msi/templates/CustomForm.dart';
 import 'package:app_msi/templates/CustomScaffold.dart';
 import 'package:flutter/material.dart';
@@ -46,48 +47,46 @@ class _addItemFormState extends State<addItemForm> {
               CustomFormField.LabelField("Type de produit"),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                child: Row(
-                  children: [
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: ListTile(
-                        title: const Text('Outils'),
-                        leading: Radio<int>(
-                          value: 1,
-                          groupValue: typeOption,
-                          onChanged: (value) {
-                            setState(() {
-                              typeOption = value!;
-                            });
-                          },
+                child: Container(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: ListTile(
+                          title: const Text('Outils'),
+                          leading: Radio<int>(
+                            value: 1,
+                            groupValue: typeOption,
+                            onChanged: (value) {
+                              setState(() {
+                                typeOption = value!;
+                              });
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    Flexible(
-                      fit: FlexFit.loose,
-                      child: ListTile(
-                        title: const Text('Entretien'),
-                        leading: Radio<int>(
-                          value: 2,
-                          groupValue: typeOption,
-                          onChanged: (value) {
-                            setState(() {
-                              typeOption = value!;
-                            });
-                          },
+                      Flexible(
+                        child: Container(
+                          child: ListTile(
+                            title: const Text('Entretien'),
+                            leading: Radio<int>(
+                              value: 2,
+                              groupValue: typeOption,
+                              onChanged: (value) {
+                                setState(() {
+                                  typeOption = value!;
+                                });
+                              },
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-              CustomFormField.LabelField("Description du produit"),
-              CustomFormField.InputField(
-                  "Brouette en bonne état et pret à l'emploi",
-                  productDescriptionController),
               const SizedBox(
                 width: 1,
-                height: 35,
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -110,10 +109,13 @@ class _addItemFormState extends State<addItemForm> {
               image != null
                   ? Column(
                       children: [
-                        Image.file(
-                          image!,
-                          width: 100,
-                          height: 100,
+                        Container(
+                          width: 250, // Définir la largeur de l'image ici
+                          height: 250, // Définir la hauteur de l'image ici
+                          child: Image.file(
+                            image!,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                         Row(
                           children: [
@@ -162,6 +164,16 @@ class _addItemFormState extends State<addItemForm> {
                               "Product price: ${productPriceController.text}");
                           debugPrint(
                               "Product amount: ${productAmmountController.text}");
+
+                          Item new_item = Item(
+                              name: productNameController.text,
+                              product_type: "entretient",
+                              image: image,
+                              unit_price: productPriceController.text,
+                              amount: productAmmountController.text,
+                              for_sale: true);
+
+                          return new_item;
                         })
                       ],
                     )

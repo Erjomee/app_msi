@@ -16,41 +16,39 @@ class _InventoryState extends State<Inventory> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  List<Item> inventory = [
-    Item(
-      name: 'Item Name',
-      description: 'Item Description',
-      product_type: 'Product Type',
-      image: 'Image Path',
-      unit_price: 1.0,
-      amount: 1,
-      for_sale: true,
-    ),
-    Item(
-      name: 'Item 2',
-      description: 'Item Description',
-      product_type: 'Product Type',
-      image: 'Image Path',
-      unit_price: 1.0,
-      amount: 1,
-      for_sale: true,
-    )
+  static List<Item> inventory = [
+    // Item(
+    //   name: 'Pioche de bucheron',
+    //   product_type: 'Product Type',
+    //   image: 'Image Path',
+    //   unit_price: 15.0,
+    //   amount: 3,
+    //   for_sale: true,
+    // ),
+    // Item(
+    //   name: 'Champignon de steve',
+    //   product_type: 'Product Type',
+    //   image: 'Image Path',
+    //   unit_price: 24.0,
+    //   amount: 1,
+    //   for_sale: true,
+    // )
   ];
 
   File? image;
 
   @override
   Widget build(BuildContext context) {
+    final Item? item = ModalRoute.of(context)?.settings.arguments as Item?;
+
+    if (item != null) {
+      if (!inventory.contains(item)) {
+        inventory.add(item);
+      }
+    }
+
     return Scaffold(
       body: Column(children: [
-        const Text(
-          "Inventaire",
-          style: TextStyle(
-            color: Colors.blue,
-            fontSize: 34,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
         Column(
           children: inventory.map((e) => ItemCard(item: e)).toList(),
         ),
@@ -64,8 +62,8 @@ class _InventoryState extends State<Inventory> {
                 builder: (context) => addItemForm(),
               ));
         },
-        child: Icon(Icons.add),
         backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }
